@@ -1,3 +1,9 @@
+<script src="cdn.jsdelivr.net"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
+<script src="polyfill.io"></script>
+<script id="MathJax-script" async src="cdn.jsdelivr.net"></script>
+
 # **NERGE PROTOCOL — LIGHT PAPER**  
 ### *A Next‑Generation DeFi Infrastructure for Safer, Fairer, and More Efficient Markets*
 
