@@ -183,7 +183,7 @@ The protocol uses a dual-token model to align incentives.
 | **IL Protection** | None | N/A | **Native & Synthetic** |
 | **Execution** | Sequential (MEV prone) | N/A | **Batch Auctions (MEV proof)** |
 | **Liquidation** | N/A | Instant (Risk of cascade) | **Gradual (Market stable)** |
-| **Oracle** | TWAP (Slow) | Chainlink (Single Dep) | **BFT Consensus (7+ sources)** |
+| **Oracle** | TWAP (Slow) | Chainlink (Single Dep) | **BFT Consensus (multiple sources)** |
 | **Risk Model** | User Defined | Shared Pool Risk | **Hybrid Pool + P2P Isolation** |
 
 ---
