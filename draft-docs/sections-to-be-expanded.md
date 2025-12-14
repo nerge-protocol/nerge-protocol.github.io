@@ -20,9 +20,9 @@ Here are the **key sections and innovative concepts** in this whitepaper that ar
 - **Core Innovation:** Models liquidations as an **M/M/c queue** to prevent cascades.
 - **Why it's novel:** Splits large liquidations into **tranches** sold via Dutch auctions over time.
 - **Key Formula:**  
-  \[
+  $$
   n > \frac{kV}{\theta_{\text{trigger}} L}
-  \]
+  $$
   (Number of tranches needed to prevent cascades)
 
 ---
@@ -55,9 +55,9 @@ Here are the **key sections and innovative concepts** in this whitepaper that ar
 ## **7. Dynamic Risk Parameters (Section 3.3)**
 - **Core Innovation:** **EWMA volatility estimation** feeds into dynamic LTV ratios.
 - **Why it's novel:** Loan-to-Value ratios adjust in real-time based on:
-  \[
+  $$
   \text{LTV}_i(t) = \text{LTV}_{\max} \cdot \left(1 - \frac{\sigma_i(t)}{\sigma_{\max}}\right) \cdot \left(1 - \frac{\text{Util}_i(t)}{\text{Util}_{\max}}\right)
-  \]
+  $$
 - **Key Benefit:** Prevents undercollateralization during volatility spikes.
 
 ---
@@ -68,9 +68,9 @@ Here are the **key sections and innovative concepts** in this whitepaper that ar
   - Value accrual (veGOV stakers get 30% of fees)
   - Utility demand (UTIL burned from 50% of fees)
 - **Key Mechanism:** **Liquidity mining boost formula** based on veGOV locking:
-  \[
+  $$
   B_i = \min\left(1 + k \cdot \frac{\text{veGOV}_i / \text{veGOV}_{\text{total}}}{\text{Liquidity}_i / \text{Liquidity}_{\text{total}}}, B_{\max}\right)
-  \]
+  $$
 
 ---
 
@@ -96,9 +96,9 @@ Here are the **key sections and innovative concepts** in this whitepaper that ar
 
 ## **11. Anti-Vampire Attack Mechanisms (Section 4.4)**
 - **Core Innovation:** **Time-based withdrawal penalty**:
-  \[
+  $$
   P(t) = \max\left(0, \left(1 - \frac{t}{T_{\text{min}}}\right) \times 10\%\right)
-  \]
+  $$
 - **Why it's novel:** Makes vampire attacks economically unviable—competitors must offer 81%+ higher APY to attract short-term LPs.
 
 ---

@@ -1,4 +1,4 @@
-# 🌟 **Nerge: Smarter, Safer, Simpler DeFi Protocols**
+# **Nerge: Smarter, Safer, Simpler DeFi Protocols**
 
 ## **The Problem: DeFi Today Is Broken**
 
@@ -18,7 +18,7 @@ Liquidity providers lose money from **impermanent loss**, traders get **front-ru
 
 ---
 
-## 🔒 **How IL Protection Works (Simple Version)**
+## **How IL Protection Works (Simple Version)**
 
 ### **Traditional DEX:**
 ```
@@ -43,7 +43,7 @@ Result: You keep providing liquidity
 
 ---
 
-## 🛡️ **No More MEV: How Batch Auctions Work**
+## **No More MEV: How Batch Auctions Work**
 
 ### **Current DEXs (Problem):**
 ```
@@ -67,7 +67,7 @@ Result: You keep providing liquidity
 
 ---
 
-## 🚨 **Safe Liquidations: No More Cascades**
+## **Safe Liquidations: No More Cascades**
 
 ### **Current Lending (Problem):**
 ```
@@ -92,7 +92,7 @@ ETH price drops 5%
 
 ---
 
-## 🏛️ **Oracle Security: Multiple Independent Sources**
+## **Oracle Security: Multiple Independent Sources**
 
 | Current Protocols | SafeLend |
 |-------------------|----------|
@@ -102,7 +102,7 @@ ETH price drops 5%
 
 ---
 
-## 💰 **Token Economics: Simple & Fair**
+## **Token Economics: Simple & Fair**
 
 ### **Dual Token System:**
 **1. GOV Token (Governance)**
@@ -126,7 +126,7 @@ Swap/Lending Fees → 100%
 
 ---
 
-## ⚡ **Why Sui Blockchain?**
+## **Why Sui Blockchain?**
 
 | Ethereum | Sui (Our Choice) |
 |----------|------------------|
@@ -139,7 +139,7 @@ Swap/Lending Fees → 100%
 
 ---
 
-## 🎯 **Key Benefits**
+## **Key Benefits**
 
 ### **For Liquidity Providers:**
 - ✅ **Earn more**: Protection reduces losses, you stay in pools longer
@@ -163,7 +163,7 @@ Swap/Lending Fees → 100%
 
 ---
 
-## 📈 **Real Numbers: Expected Performance**
+## **Real Numbers: Expected Performance**
 
 ### **For LPs with Protection:**
 ```
@@ -190,7 +190,7 @@ SmartSwap:
 
 ---
 
-## 🚀 **Implementation Roadmap**
+## **Implementation Roadmap**
 
 ### **Phase 1: MVP (Q1 2026)**
 - SmartSwap with 2 pairs (ETH/USDC, SUI/USDC)
@@ -213,7 +213,7 @@ SmartSwap:
 
 ---
 
-## 🔐 **Security First**
+## **Security First**
 
 ### **Audits & Verification:**
 - ✅ **Formal verification** of Move contracts
@@ -229,7 +229,7 @@ SmartSwap:
 
 ---
 
-## 🤝 **Team & Community**
+## **Team & Community**
 
 ### **Core Team:**
 - **Quantitative finance** PhDs (ex-Goldman, Citadel)
@@ -244,7 +244,7 @@ SmartSwap:
 
 ---
 
-## 💡 **Why This Matters Now**
+## **Why This Matters Now**
 
 ### **Market Timing:**
 - **DeFi 1.0** (2020-2022): Basic protocols, many flaws
@@ -262,7 +262,7 @@ SmartSwap:
 
 ---
 
-## 📊 **Expected Impact**
+## **Expected Impact**
 
 ### **By Year 1:**
 - **TVL**: $500M+
@@ -279,7 +279,7 @@ SmartSwap:
 
 ---
 
-## 🎯 **Call to Action**
+## **Call to Action**
 
 ### **For Users:**
 - **Try testnet** when available
@@ -298,7 +298,7 @@ SmartSwap:
 
 ---
 
-## ❓ **Common Questions**
+## **Common Questions**
 
 ### **Q: Is this really "no loss" for LPs?**
 **A:** No — it's "less loss." Protection covers 50-90% of impermanent loss, not 100%. You pay a small fee (0.8%/year) for this protection.
@@ -317,13 +317,13 @@ SmartSwap:
 
 ---
 
-## 🌐 **Get Involved**
+## **Get Involved**
 
-**Website:** [nerge-protocol.vercel.app](https://nerge-protocol.vercel.app/)
-**Twitter:** @Nerge_Protocol 
-**Discord:** discord.gg/defipp  
-**GitHub:** [github.com/nerge-protocol ](https://github.com/nerge-protocol) 
-**Email:** nergeprotocol@gmail.com
+**Website:** [nerge-protocol.vercel.app](https://nerge-protocol.vercel.app/)    
+**Twitter:** @Nerge_Protocol    
+**Discord:** discord.gg/defipp      
+**GitHub:** [github.com/nerge-protocol ](https://github.com/nerge-protocol)     
+**Email:** nergeprotocol@gmail.com  
 
 **Testnet Launch:** Q1 2026  
 **Mainnet Launch:** Q2 2026

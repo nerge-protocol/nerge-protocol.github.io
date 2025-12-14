@@ -293,20 +293,20 @@ for typical market conditions.
 **Implementation Mechanics:** In practice, the protocol:
 
 1. **At LP Deposit:**
-   - Calculate theoretical hedge parameters ($K_{\text{put}}^*$, $K_{\text{call}}^*$)
-   - Store these as protection trigger levels in LP position record
-   - Begin collecting continuous fee $\phi = 0.008$ annually (0.8%)
+      - Calculate theoretical hedge parameters ($K_{\text{put}}^*$, $K_{\text{call}}^*$)
+      - Store these as protection trigger levels in LP position record
+      - Begin collecting continuous fee $\phi = 0.008$ annually (0.8%)
 
 2. **During LP Period:**
-   - Accumulate fees into protocol reserve fund
-   - Track IL exposure using calculated protection parameters
-   - Optionally perform delta hedging to manage aggregate risk
+      - Accumulate fees into protocol reserve fund
+      - Track IL exposure using calculated protection parameters
+      - Optionally perform delta hedging to manage aggregate risk
 
 3. **At LP Withdrawal:**
-   - Calculate actual IL incurred
-   - Compute protection payout using synthetic option formulas
-   - Pay min(calculated_payout, reserve_available) to LP
-   - Settlement is automatic, not user-initiated ("exercise")
+      - Calculate actual IL incurred
+      - Compute protection payout using synthetic option formulas
+      - Pay min(calculated_payout, reserve_available) to LP
+      - Settlement is automatic, not user-initiated ("exercise")
 
 **Key Distinction:** Users never "buy options", "sell options", or "exercise options". They simply enable protection as a feature of their LP position, and receive payouts automatically upon withdrawal.
 
@@ -314,17 +314,17 @@ for typical market conditions.
 
 **Legal Framework:** This protection mechanism is designed to avoid classification as securities or regulated derivatives:
 
-**It is NOT:**
-- ❌ An options contract (no separate tradeable instrument)
-- ❌ A derivative (protection is embedded, not standalone)
-- ❌ A security (no investment contract created)
-- ❌ Insurance (no underwriting, claims process, or regulatory coverage)
+**It is NOT:**  
+- ❌ An options contract (no separate tradeable instrument)  
+- ❌ A derivative (protection is embedded, not standalone)  
+- ❌ A security (no investment contract created)  
+- ❌ Insurance (no underwriting, claims process, or regulatory coverage) 
 
-**It IS:**
-- ✅ A protocol feature (like slippage protection or gas rebates)
-- ✅ Algorithmically-determined payouts from reserves
-- ✅ Embedded risk management (similar to stop-loss mechanisms)
-- ✅ Mathematical payoff replication (using options theory as calculation method)
+**It IS:**  
+- ✅ A protocol feature (like slippage protection or gas rebates)  
+- ✅ Algorithmically-determined payouts from reserves  
+- ✅ Embedded risk management (similar to stop-loss mechanisms)  
+- ✅ Mathematical payoff replication (using options theory as calculation method)  
 
 **Analogy:** Similar to how retail "price protection" programs use actuarial mathematics without being insurance contracts, our protocol uses options mathematics without creating options contracts.
 
@@ -348,29 +348,29 @@ for typical market conditions.
 
 **Definition 2.5 (MEV):** Maximal Extractable Value is the additional profit a strategic actor can obtain by reordering, inserting, or censoring transactions within a block.
 
-Traditional DEXs process transactions sequentially, enabling:
-1. **Front-running:** Placing a trade before a large user order
+Traditional DEXs process transactions sequentially, enabling:  
+1. **Front-running:** Placing a trade before a large user order  
 2. **Back-running:** Placing a trade after a large user order  
-3. **Sandwich attacks:** Combining front and back-running
+3. **Sandwich attacks:** Combining front and back-running 
 
-**Example:** Consider a user wanting to buy $X$ tokens with $Y$ tokens on a constant product AMM. A sandwich attacker:
-1. Observes the pending transaction (buys 100 $X$)
-2. Front-runs: buys $X$ (price increases)
-3. User's transaction executes (at worse price)
-4. Back-runs: sells $X$ (realizes profit)
+**Example:** Consider a user wanting to buy $X$ tokens with $Y$ tokens on a constant product AMM. A sandwich attacker:  
+1. Observes the pending transaction (buys 100 $X$)  
+2. Front-runs: buys $X$ (price increases)  
+3. User's transaction executes (at worse price)  
+4. Back-runs: sells $X$ (realizes profit)  
 
 #### 2.2.2 Batch Auction Design
 
 **Definition 2.6 (Batch Auction):** A batch auction collects orders over a time interval $[t, t+\Delta]$ and executes them simultaneously at a uniform clearing price $P_{\text{clear}}$.
 
-**Mechanism:**
-1. Users submit sealed bids: $B_i = (a_i^{\text{in}}, a_i^{\text{out}}, s_i^{\text{max}})$
-   - $a_i^{\text{in}}$: amount of input token
-   - $a_i^{\text{out}}$: minimum acceptable output
-   - $s_i^{\text{max}}$: maximum acceptable slippage
-2. Auctioneer computes clearing price $P_{\text{clear}}$
-3. All feasible trades execute at $P_{\text{clear}}$
-4. Remaining orders roll to next batch
+**Mechanism:**  
+1. Users submit sealed bids: $B_i = (a_i^{\text{in}}, a_i^{\text{out}}, s_i^{\text{max}})$  
+   - $a_i^{\text{in}}$: amount of input token  
+   - $a_i^{\text{out}}$: minimum acceptable output  
+   - $s_i^{\text{max}}$: maximum acceptable slippage  
+2. Auctioneer computes clearing price $P_{\text{clear}}$  
+3. All feasible trades execute at $P_{\text{clear}}$  
+4. Remaining orders roll to next batch  
 
 **Definition 2.7 (Clearing Price):** The uniform clearing price is:
 
@@ -394,20 +394,20 @@ where $\text{SW}$ denotes social welfare (total utility).
 
 Suppose $i$ reports value $b_i \neq v_i$.
 
-**Case 1:** $b_i > v_i$ (over-reporting)
-- $i$ may win allocation when $v_i < P_{\text{clear}} < b_i$
-- In this case, utility is $u_i = (a_i^{\text{out}} - P_{\text{clear}}) - \text{Payment}_i < 0$
-- By reporting truthfully, $i$ would not have been allocated, yielding $u_i = 0$
+**Case 1:** $b_i > v_i$ (over-reporting)  
+- $i$ may win allocation when $v_i < P_{\text{clear}} < b_i$  
+- In this case, utility is $u_i = (a_i^{\text{out}} - P_{\text{clear}}) - \text{Payment}_i < 0$  
+- By reporting truthfully, $i$ would not have been allocated, yielding $u_i = 0$  
 
-**Case 2:** $b_i < v_i$ (under-reporting)
-- $i$ may lose allocation when $b_i < P_{\text{clear}} < v_i$
-- This yields utility $u_i = 0$
-- By reporting truthfully, $i$ would have won with utility $u_i = v_i - P_{\text{clear}} > 0$
+**Case 2:** $b_i < v_i$ (under-reporting)  
+- $i$ may lose allocation when $b_i < P_{\text{clear}} < v_i$  
+- This yields utility $u_i = 0$  
+- By reporting truthfully, $i$ would have won with utility $u_i = v_i - P_{\text{clear}} > 0$  
 
-**Case 3:** $b_i = v_i$ (truth-telling)
-- The VCG payment rule ensures: $u_i = v_i - P_{\text{clear}} - \text{Payment}_i$
-- This equals the marginal contribution to social welfare
-- Always weakly better than lying
+**Case 3:** $b_i = v_i$ (truth-telling)  
+- The VCG payment rule ensures: $u_i = v_i - P_{\text{clear}} - \text{Payment}_i$  
+- This equals the marginal contribution to social welfare  
+- Always weakly better than lying  
 
 Therefore, truth-telling weakly dominates all other strategies. $\square$
 
@@ -417,28 +417,28 @@ Therefore, truth-telling weakly dominates all other strategies. $\square$
 
 *Proof:* Consider a strategic attacker attempting a sandwich attack.
 
-**Traditional Sequential DEX:**
-- Attacker observes pending order: user buys $\Delta X$ units
-- Front-run: attacker buys $\delta X$ units at price $P_1$
-- User order executes at price $P_2 > P_1$
-- Back-run: attacker sells $\delta X$ units at price $P_2$
-- Profit: $\pi_{\text{MEV}} = \delta X(P_2 - P_1) - \text{gas}$
+**Traditional Sequential DEX:**  
+- Attacker observes pending order: user buys $\Delta X$ units  
+- Front-run: attacker buys $\delta X$ units at price $P_1$  
+- User order executes at price $P_2 > P_1$  
+- Back-run: attacker sells $\delta X$ units at price $P_2$  
+- Profit: $\pi_{\text{MEV}} = \delta X(P_2 - P_1) - \text{gas}$  
 
-**Batch Auction:**
-- All orders (attacker's and user's) submitted in interval $[t, t+\Delta]$
-- Clearing price computed: $P_{\text{clear}} = f(\text{all orders})$
-- Attacker's buy order executes at $P_{\text{clear}}$
-- Attacker's sell order executes at $P_{\text{clear}}$
-- Net profit: $\pi_{\text{batch}} = \delta X(P_{\text{clear}} - P_{\text{clear}}) - \text{gas} = -\text{gas} < 0$
+**Batch Auction:**  
+- All orders (attacker's and user's) submitted in interval $[t, t+\Delta]$  
+- Clearing price computed: $P_{\text{clear}} = f(\text{all orders})$  
+- Attacker's buy order executes at $P_{\text{clear}}$  
+- Attacker's sell order executes at $P_{\text{clear}}$  
+- Net profit: $\pi_{\text{batch}} = \delta X(P_{\text{clear}} - P_{\text{clear}}) - \text{gas} = -\text{gas} < 0$  
 
-The key insight: **uniform pricing eliminates the price advantage from transaction ordering**.
+The key insight: **uniform pricing eliminates the price advantage from transaction ordering**.  
 
 Formally, let $\sigma$ be any permutation of transactions in batch $\mathcal{B}$. Then:
 
-$$\forall i \in \mathcal{B}, \forall \sigma: \text{Price}(i, \sigma) = P_{\text{clear}}$$
+$$\forall i \in \mathcal{B}, \forall \sigma: \text{Price}(i, \sigma) = P_{\text{clear}}$$  
 
 Therefore:
-$$\mathbb{E}_{\sigma}[\pi_{\text{MEV}}] = 0$$
+$\mathbb{E}_{\sigma}[\pi_{\text{MEV}}] = 0$
 
 $\square$
 
@@ -458,9 +458,9 @@ $$\mathbb{E}[\text{Savings}] \approx 0.5\% \text{ to } 2\% \text{ of trade value
 
 $$C(\Delta) = C_{\text{latency}}(\Delta) + C_{\text{fragmentation}}(\Delta)$$
 
-where:
-- $C_{\text{latency}}(\Delta) = \alpha \cdot \Delta$ (linear in delay)
-- $C_{\text{fragmentation}}(\Delta) = \beta / \Delta$ (inversely proportional)
+where:  
+- $C_{\text{latency}}(\Delta) = \alpha \cdot \Delta$ (linear in delay)  
+- $C_{\text{fragmentation}}(\Delta) = \beta / \Delta$ (inversely proportional)  
 
 **Theorem 2.6 (Optimal Batch Duration):** The optimal batch duration is:
 
@@ -480,9 +480,9 @@ $$\frac{d^2C}{d\Delta^2} = \frac{2\beta}{\Delta^3} > 0$$
 
 confirms this is a minimum. $\square$
 
-For typical DeFi parameters:
-- $\alpha \approx 0.1$ (user's time cost per second)
-- $\beta \approx 1.0$ (liquidity fragmentation cost)
+For typical DeFi parameters:  
+- $\alpha \approx 0.1$ (user's time cost per second)  
+- $\beta \approx 1.0$ (liquidity fragmentation cost)  
 
 $$\Delta^* = \sqrt{\frac{1.0}{0.1}} = \sqrt{10} \approx 3.16 \text{ seconds}$$
 
@@ -498,20 +498,20 @@ This aligns with Sui's sub-second finality, allowing 2-3 second batch windows.
 
 $$\Delta P_{\text{liquidation}} = -\frac{kV}{L} > \theta_{\text{trigger}}$$
 
-where:
-- $V$ is the liquidation volume
-- $L$ is market liquidity depth
-- $k$ is the price impact coefficient
-- $\theta_{\text{trigger}}$ is the threshold that triggers additional liquidations
+where:  
+- $V$ is the liquidation volume  
+- $L$ is market liquidity depth  
+- $k$ is the price impact coefficient  
+- $\theta_{\text{trigger}}$ is the threshold that triggers additional liquidations  
 
 This creates a positive feedback loop: liquidations → price drop → more liquidations.
 
 #### 2.3.2 Queuing Theory Framework
 
-Model the liquidation system as an M/M/c queue:
-- **Arrivals:** Positions becoming undercollateralized (Poisson rate $\lambda$)
-- **Service:** Liquidation execution (exponential rate $\mu$ per position)
-- **Servers:** $c$ parallel liquidation channels
+Model the liquidation system as an M/M/c queue:  
+- **Arrivals:** Positions becoming undercollateralized (Poisson rate $\lambda$)  
+- **Service:** Liquidation execution (exponential rate $\mu$ per position)  
+- **Servers:** $c$ parallel liquidation channels  
 
 **Definition 2.11 (System Stability):** The liquidation system is stable if:
 
@@ -533,17 +533,17 @@ $$P_0 = \left[\sum_{n=0}^{c-1} \frac{(c\rho)^n}{n!} + \frac{(c\rho)^c}{c!(1-\rho
 
 $$P(t) = P_{\text{oracle}} \cdot e^{-\alpha t} + P_{\text{floor}}$$
 
-where:
-- $P_{\text{oracle}}$ is the oracle price at liquidation start
-- $\alpha$ is the decay rate
-- $P_{\text{floor}}$ is the minimum price (e.g., $0.95 \cdot P_{\text{oracle}}$)
+where:  
+- $P_{\text{oracle}}$ is the oracle price at liquidation start  
+- $\alpha$ is the decay rate  
+- $P_{\text{floor}}$ is the minimum price (e.g., $0.95 \cdot P_{\text{oracle}}$)  
 - $t$ is time since liquidation started
 
 **Proposition 2.2 (Liquidator Incentive):** A rational liquidator will purchase when:
 
 $$P(t^*) = P_{\text{market}} + \epsilon$$
 
-where $\epsilon$ is a small profit margin.
+where $\epsilon$ is a small profit margin.  
 
 *Proof:* At any time $t < t^*$, purchasing yields negative profit as $P(t) > P_{\text{market}}$. At $t = t^*$, profit is approximately zero. At $t > t^*$, profit is positive and increasing. Therefore, rational liquidators bid at $t^*$. $\square$
 
@@ -587,9 +587,9 @@ However, adding safety margin: $n \approx 5-10$ tranches recommended.
 
 $$C_{\text{total}} = C_{\text{delay}} + C_{\text{slippage}}$$
 
-where:
-- $C_{\text{delay}} = \int_0^T r \cdot V(t) \, dt$ is interest accrued on unliquidated collateral
-- $C_{\text{slippage}} = \sum_{i=1}^{n} (P_{\text{oracle}} - P_i) \cdot V_i$ is price impact
+where:  
+- $C_{\text{delay}} = \int_0^T r \cdot V(t) \, dt$ is interest accrued on unliquidated collateral  
+- $C_{\text{slippage}} = \sum_{i=1}^{n} (P_{\text{oracle}} - P_i) \cdot V_i$ is price impact 
 
 **Theorem 2.9 (Optimal Tranche Size):** The optimal tranche size is:
 
@@ -629,10 +629,10 @@ $\square$
 
 #### 2.4.1 Byzantine Fault Tolerance Problem
 
-**Definition 2.14 (Byzantine Fault):** An oracle is Byzantine faulty if it provides arbitrary or malicious price data, including:
-- Reporting incorrect prices deliberately
-- Colluding with other faulty oracles
-- Exhibiting arbitrary behavior
+**Definition 2.14 (Byzantine Fault):** An oracle is Byzantine faulty if it provides arbitrary or malicious price data, including:   
+- Reporting incorrect prices deliberately  
+- Colluding with other faulty oracles  
+- Exhibiting arbitrary behavior  
 
 **Assumption 2.1:** We assume at most $f$ out of $n$ oracles are Byzantine faulty, where $n \geq 3f + 1$.
 
@@ -718,11 +718,11 @@ $\square$
 
 To prevent adaptive attacks, we use a two-phase protocol:
 
-**Phase 1 (Commit):** Oracles submit:
-$c_i = H(P_i || r_i || t)$
-where $H$ is a cryptographic hash, $r_i$ is random nonce, and $t$ is timestamp.
+**Phase 1 (Commit):** Oracles submit:  
+$c_i = H(P_i || r_i || t)$  
+where $H$ is a cryptographic hash, $r_i$ is random nonce, and $t$ is timestamp.  
 
-**Phase 2 (Reveal):** Oracles reveal $(P_i, r_i)$ such that $H(P_i || r_i || t) = c_i$.
+**Phase 2 (Reveal):** Oracles reveal $(P_i, r_i)$ such that $H(P_i || r_i || t) = c_i$.  
 
 **Theorem 2.12 (Commit-Reveal Security):** The commit-reveal scheme prevents adaptive attacks with probability $1 - 2^{-\lambda}$ where $\lambda$ is the hash security parameter.
 
@@ -747,11 +747,11 @@ $r(U) = r_0 + r_1 \cdot U + r_2 \cdot \max(U - U^*, 0)$
 
 where $U$ is utilization rate and $U^*$ is the optimal target.
 
-This fails to adapt to:
-- Market regime changes
-- Black swan events
-- Competitor dynamics
-- Asset-specific characteristics
+This fails to adapt to:  
+- Market regime changes  
+- Black swan events  
+- Competitor dynamics  
+- Asset-specific characteristics  
 
 #### 3.1.2 Markov Decision Process Formulation
 
@@ -759,12 +759,12 @@ This fails to adapt to:
 
 $s_t = (U_t, \sigma_t, r_t^{\text{market}}, R_t^{\text{protocol}}, D_t)$
 
-where:
-- $U_t$ is current utilization rate
-- $\sigma_t$ is recent volatility (EWMA)
-- $r_t^{\text{market}}$ is market lending rate (from other protocols)
-- $R_t^{\text{protocol}}$ is protocol reserve ratio
-- $D_t$ is recent bad debt amount
+where:  
+- $U_t$ is current utilization rate  
+- $\sigma_t$ is recent volatility (EWMA)  
+- $r_t^{\text{market}}$ is market lending rate (from other protocols)  
+- $R_t^{\text{protocol}}$ is protocol reserve ratio  
+- $D_t$ is recent bad debt amount  
 
 **Definition 3.2 (Action Space):** The action $a_t \in \mathcal{A}$ is the interest rate parameters:
 
@@ -774,11 +774,11 @@ $a_t = (r_0^t, r_1^t, r_2^t, U^{*,t})$
 
 $R(s_t, a_t) = w_1 \cdot \text{Revenue}_t + w_2 \cdot U_t - w_3 \cdot \text{BadDebt}_t - w_4 \cdot |\Delta r_t|$
 
-where:
-- $w_1, w_2, w_3, w_4$ are weight parameters
-- $\text{Revenue}_t$ is interest collected
-- $\text{BadDebt}_t$ is losses from liquidations
-- $|\Delta r_t|$ penalizes rate volatility (user experience)
+where:   
+- $w_1, w_2, w_3, w_4$ are weight parameters  
+- $\text{Revenue}_t$ is interest collected  
+- $\text{BadDebt}_t$ is losses from liquidations  
+- $|\Delta r_t|$ penalizes rate volatility (user experience)  
 
 #### 3.1.3 Q-Learning Algorithm
 
@@ -801,10 +801,10 @@ For each episode:
         s ← s'
 ```
 
-**Theorem 3.1 (Q-Learning Convergence):** Under conditions:
-1. All state-action pairs are visited infinitely often
-2. Learning rate satisfies $\sum_t \alpha_t = \infty$ and $\sum_t \alpha_t^2 < \infty$
-3. Rewards are bounded
+**Theorem 3.1 (Q-Learning Convergence):** Under conditions:  
+1. All state-action pairs are visited infinitely often  
+2. Learning rate satisfies $\sum_t \alpha_t = \infty$ and $\sum_t \alpha_t^2 < \infty$  
+3. Rewards are bounded  
 
 The Q-learning algorithm converges to optimal policy $\pi^*$ with probability 1.
 
@@ -824,10 +824,10 @@ $Q(s, a; \theta) \approx Q^*(s, a)$
 
 $\mathcal{L}(\theta) = \mathbb{E}_{(s,a,r,s') \sim \mathcal{D}}\left[\left(r + \gamma \max_{a'} Q(s', a'; \theta^-) - Q(s, a; \theta)\right)^2\right]$
 
-where:
-- $\theta$ are the current network parameters
-- $\theta^-$ are target network parameters (updated periodically)
-- $\mathcal{D}$ is the replay buffer
+where:   
+- $\theta$ are the current network parameters  
+- $\theta^-$ are target network parameters (updated periodically)  
+- $\mathcal{D}$ is the replay buffer  
 
 **Gradient Update:**
 
@@ -913,10 +913,10 @@ where $\lambda$ is the risk aversion coefficient.
 
 $\mathbf{P} \boldsymbol{\mu} = \mathbf{Q} + \boldsymbol{\epsilon}$
 
-where:
-- $\mathbf{P}$ is $K \times n$ matrix expressing views
-- $\mathbf{Q}$ is $K \times 1$ vector of view returns
-- $\boldsymbol{\epsilon} \sim \mathcal{N}(0, \Omega)$ is view uncertainty
+where:   
+- $\mathbf{P}$ is $K \times n$ matrix expressing views  
+- $\mathbf{Q}$ is $K \times 1$ vector of view returns  
+- $\boldsymbol{\epsilon} \sim \mathcal{N}(0, \Omega)$ is view uncertainty  
 
 **Theorem 3.4 (Black-Litterman Posterior):** The posterior expected return is:
 
@@ -986,11 +986,11 @@ Taking derivatives and setting to zero yields the stated relationship. $\square$
 
 $\text{LTV}_i(t) = \text{LTV}_{\max} \cdot \left(1 - \frac{\sigma_i(t)}{\sigma_{\max}}\right) \cdot \left(1 - \frac{\text{Util}_i(t)}{\text{Util}_{\max}}\right)$
 
-where:
-- $\sigma_i(t)$ is current volatility
-- $\sigma_{\max}$ is maximum acceptable volatility
-- $\text{Util}_i(t)$ is current utilization
-- $\text{Util}_{\max}$ is maximum acceptable utilization
+where:   
+- $\sigma_i(t)$ is current volatility  
+- $\sigma_{\max}$ is maximum acceptable volatility  
+- $\text{Util}_i(t)$ is current utilization  
+- $\text{Util}_{\max}$ is maximum acceptable utilization  
 
 **Theorem 3.7 (Solvency Preservation):** Under dynamic LTV with:
 
@@ -1002,7 +1002,7 @@ the protocol remains solvent with probability $> 99.7\%$ (3-sigma event).
 
 $\text{Collateral ratio} = \frac{C \cdot P_t}{D}$
 
-where $P_t$ is the price at time $t$.
+where $P_t$ is the price at time $t$.  
 
 For solvency: $\frac{C \cdot P_t}{D} > 1$
 
@@ -1047,11 +1047,11 @@ $\square$
 
 **Definition 4.1 (Governance Token):** GOV is a fixed-supply token with total supply $S_{\text{GOV}} = 1{,}000{,}000{,}000$ tokens.
 
-**Utility:**
-1. Voting rights on protocol parameters
-2. Revenue sharing (fee distribution)
-3. Boost multiplier for liquidity mining rewards
-4. Collateral for protocol insurance
+**Utility:**   
+1. Voting rights on protocol parameters  
+2. Revenue sharing (fee distribution)  
+3. Boost multiplier for liquidity mining rewards  
+4. Collateral for protocol insurance  
 
 **Distribution:**
 
@@ -1069,31 +1069,31 @@ $\begin{aligned}
 
 $S_{\text{UTIL}}(t+1) = S_{\text{UTIL}}(t) + \text{Minted}(t) - \text{Burned}(t)$
 
-**Minting:** New UTIL minted for:
-- Liquidity mining rewards
-- Protocol incentives
-- Insurance payouts
+**Minting:** New UTIL minted for:   
+- Liquidity mining rewards  
+- Protocol incentives  
+- Insurance payouts  
 
-**Burning:** UTIL burned from:
-- 50% of all protocol fees
-- Penalty mechanisms
-- Voluntary burning for governance weight
+**Burning:** UTIL burned from:   
+- 50% of all protocol fees  
+- Penalty mechanisms  
+- Voluntary burning for governance weight  
 
 **Theorem 4.1 (Long-term Deflation):** If protocol revenue exceeds incentive emissions, UTIL becomes deflationary:
 
-$\lim_{t \to \infty} S_{\text{UTIL}}(t) = S_0 \cdot e^{-\int_0^t (\text{burn\_rate} - \text{mint\_rate}) ds}$
+$$\lim_{t \to \infty} S_{\text{UTIL}}(t) = S_0 \cdot e^{-\int_0^t (\text{burn_rate}  -  \text{mint_rate}) ds}$$
 
 *Proof:* The supply evolution follows:
 
-$\frac{dS}{dt} = \text{mint\_rate}(t) - \text{burn\_rate}(t)$
+$\frac{dS}{dt} = \text{mint_rate}(t) - \text{burn_rate}(t)$
 
 When burn rate exceeds mint rate consistently:
 
-$\text{burn\_rate}(t) > \text{mint\_rate}(t) \implies \frac{dS}{dt} < 0$
+$\text{burn_rate}(t) > \text{mint_rate}(t) \implies \frac{dS}{dt} < 0$
 
 Integrating:
 
-$S(t) = S_0 \exp\left(\int_0^t (\text{mint\_rate} - \text{burn\_rate}) ds\right)$
+$S(t) = S_0 \exp\left(\int_0^t (\text{mint_rate} - \text{burn_rate}) ds\right)$
 
 As $t \to \infty$ with sustained protocol revenue, the integral becomes negative, implying $S(t) \to 0$ asymptotically (though practically stabilizes at equilibrium). $\square$
 
@@ -1119,9 +1119,9 @@ $\text{veGOV}(t) = \text{veGOV}(0) \cdot \frac{T - t}{T}$
 
 $B_i = \min\left(1 + k \cdot \frac{\text{veGOV}_i / \text{veGOV}_{\text{total}}}{\text{Liquidity}_i / \text{Liquidity}_{\text{total}}}, B_{\max}\right)$
 
-where:
-- $k$ is the boost coefficient (typically $k = 2.5$)
-- $B_{\max}$ is the maximum boost (typically $B_{\max} = 2.5$)
+where:   
+- $k$ is the boost coefficient (typically $k = 2.5$)  
+- $B_{\max}$ is the maximum boost (typically $B_{\max} = 2.5$) 
 
 **Theorem 4.2 (Boost Incentive):** A user maximizes expected rewards by locking:
 
@@ -1158,11 +1158,11 @@ $\begin{array}{c|c|c}
 
 *Proof:* If both players lock, each gets payoff 3. 
 
-If player 1 deviates to No Lock while player 2 locks:
-- Player 1's payoff: $1 < 3$
+If player 1 deviates to No Lock while player 2 locks:  
+- Player 1's payoff: $1 < 3$  
 
-If player 2 deviates to No Lock while player 1 locks:
-- Player 2's payoff: $1 < 3$
+If player 2 deviates to No Lock while player 1 locks:  
+- Player 2's payoff: $1 < 3$  
 
 Neither player benefits from unilateral deviation, hence (Lock, Lock) is Nash equilibrium. $\square$
 
@@ -1176,10 +1176,10 @@ Neither player benefits from unilateral deviation, hence (Lock, Lock) is Nash eq
 
 $R(t) = R_{\text{swap}}(t) + R_{\text{lending}}(t) + R_{\text{hedge}}(t) + R_{\text{liquidation}}(t)$
 
-where:
-- $R_{\text{swap}}(t) = 0.05\% \times V_{\text{swap}}(t)$ (swap fees)
-- $R_{\text{lending}}(t) = 15\% \times I_{\text{total}}(t)$ (interest spread)
-- $R_{\text{hedge}}(t) = 0.5\text{-}1\% \times \text{TVL}_{\text{hedged}}(t)$ (annual hedge premium)
+where:   
+- $R_{\text{swap}}(t) = 0.05\% \times V_{\text{swap}}(t)$ (swap fees)  
+- $R_{\text{lending}}(t) = 15\% \times I_{\text{total}}(t)$ (interest spread)  
+- $R_{\text{hedge}}(t) = 0.5\text{-}1\% \times \text{TVL}_{\text{hedged}}(t)$ (annual hedge premium)  
 - $R_{\text{liquidation}}(t) = 3\% \times V_{\text{liquidated}}(t)$ (liquidation penalty)
 
 #### 4.3.2 Fee Distribution Waterfall
@@ -1233,9 +1233,9 @@ $\text{Market Cap} = 15 \times 10M \text{ to } 30 \times 10M = \$150M \text{ to 
 
 $D_{\text{UTIL}} = D_{\text{hedge}} + D_{\text{fees}} + D_{\text{stake}}$
 
-where:
-- $D_{\text{hedge}}$: collateral for IL hedges
-- $D_{\text{fees}}$: required for fee payments
+where:   
+- $D_{\text{hedge}}$: collateral for IL hedges  
+- $D_{\text{fees}}$: required for fee payments  
 - $D_{\text{stake}}$: staked for protocol roles
 
 **Theorem 4.6 (UTIL Price Equilibrium):** At equilibrium:
@@ -1264,9 +1264,9 @@ Creating deflationary pressure and upward price pressure.
 
 $E(t) = E_0 \cdot e^{-\lambda t}$
 
-where:
-- $E_0 = 150M$ tokens in year 1
-- $\lambda = \ln(2)/6$ (half-life of 6 months)
+where:   
+- $E_0 = 150M$ tokens in year 1  
+- $\lambda = \ln(2)/6$ (half-life of 6 months)  
 
 **Proposition 4.2 (Total Emissions):** Total emissions over infinite time:
 
@@ -1292,10 +1292,10 @@ Taking derivative:
 
 $\frac{\partial U}{\partial m_i} = \frac{\partial \text{Fees}_i}{\partial \text{TVL}_i} \cdot \frac{\partial \text{TVL}_i}{\partial m_i} - \frac{\partial \text{Cost}}{\partial E_i} \cdot \frac{\partial E_i}{\partial m_i} = 0$
 
-*Proof:* This is the first-order condition for optimality. The optimal multiplier balances marginal fee generation against marginal emission cost. Empirically calibrated based on:
-- Pair volatility (higher → higher multiplier to compensate IL)
-- Strategic importance (core pairs → higher multiplier)
-- Competitor incentives (match or exceed to attract liquidity)
+*Proof:* This is the first-order condition for optimality. The optimal multiplier balances marginal fee generation    against marginal emission cost. Empirically calibrated based on:  
+- Pair volatility (higher → higher multiplier to compensate IL)  
+- Strategic importance (core pairs → higher multiplier)  
+- Competitor incentives (match or exceed to attract liquidity)  
 
 $\square$
 
@@ -1361,19 +1361,19 @@ Competitor must offer 81% higher APY to attract 1-month users!
 
 ### 5.1 Protocol Solvency
 
-**Theorem 5.1 (Lending Protocol Solvency):** Under assumptions:
-1. Oracle prices accurate within $\pm 2\%$
-2. Liquidations execute within $\Delta t = 1$ hour
-3. Price volatility $\sigma < 200\%$ annually
-4. Collateral factors set according to Theorem 3.7
+**Theorem 5.1 (Lending Protocol Solvency):** Under assumptions:   
+1. Oracle prices accurate within $\pm 2\%$  
+2. Liquidations execute within $\Delta t = 1$ hour  
+3. Price volatility $\sigma < 200\%$ annually  
+4. Collateral factors set according to Theorem 3.7  
 
 The protocol maintains solvency with probability $> 99.9\%$.
 
-*Proof:* For position with collateral $C$ and debt $D$:
+*Proof:* For position with collateral $C$ and debt $D$:  
 
 $\text{Solvency} \iff C \cdot P_{\text{liquidation}} > D$
 
-With collateral factor $CF$:
+With collateral factor $CF$:  
 $C = D / CF$
 
 Therefore:
@@ -1466,17 +1466,17 @@ $\square$
 
 ### 5.5 Smart Contract Security
 
-**Definition 5.1 (Formal Verification):** We use the Move Prover to verify:
+**Definition 5.1 (Formal Verification):** We use the Move Prover to verify:  
 
-1. **Resource Safety:** Assets cannot be duplicated or destroyed
-2. **Access Control:** Only authorized users can execute privileged functions
-3. **Arithmetic Safety:** No overflow/underflow in calculations
-4. **State Consistency:** Protocol invariants maintained
+1. **Resource Safety:** Assets cannot be duplicated or destroyed  
+2. **Access Control:** Only authorized users can execute privileged functions  
+3. **Arithmetic Safety:** No overflow/underflow in calculations  
+4. **State Consistency:** Protocol invariants maintained  
 
-**Theorem 5.5 (Move Safety Guarantees):** The Move language provides:
-1. **Linear Types:** Resources cannot be copied or implicitly discarded
-2. **Module System:** Encapsulation prevents external manipulation
-3. **Bytecode Verification:** Type safety enforced at load time
+**Theorem 5.5 (Move Safety Guarantees):** The Move language provides:   
+1. **Linear Types:** Resources cannot be copied or implicitly discarded  
+2. **Module System:** Encapsulation prevents external manipulation  
+3. **Bytecode Verification:** Type safety enforced at load time  
 
 *Proof:* These are fundamental properties of the Move language design. See the Move whitepaper for formal proofs. $\square$
 
@@ -1486,9 +1486,9 @@ $\square$
 
 ### 6.1 Sui Blockchain Advantages
 
-**Definition 6.1 (Parallel Execution):** Sui processes transactions in parallel when they don't touch the same objects:
+**Definition 6.1 (Parallel Execution):** Sui processes transactions in parallel when they don't touch the same objects:  
 
-$\text{Throughput} = \sum_{\text{cores}} \text{TPS}_{\text{single core}}$
+$\text{Throughput} = \sum_{\text{cores}} \text{TPS}_{\text{single core}}$  
 
 vs. sequential blockchains: $\text{Throughput} = \text{TPS}_{\text{single core}}$
 
@@ -1502,12 +1502,12 @@ In parallel execution, if $T_1$ and $T_2$ are independent (operate on different 
 
 ### 6.2 Object-Centric Model
 
-**Definition 6.2 (Owned Objects):** In Sui, each object has:
-- Unique ID
-- Owner (address or shared)
-- Version number
+**Definition 6.2 (Owned Objects):** In Sui, each object has:  
+- Unique ID  
+- Owner (address or shared)  
+- Version number  
 
-**Theorem 6.2 (Conflict-Free Updates):** For transaction $T$ modifying owned object $O$:
+**Theorem 6.2 (Conflict-Free Updates):** For transaction $T$ modifying owned object $O$:  
 
 $\text{Valid}(T) \iff \text{Version}(O) = \text{Expected\_Version}(T)$
 
@@ -1520,13 +1520,13 @@ This ensures:
 
 ### 6.3 Gas Economics
 
-**Definition 6.3 (Sui Gas Model):** Gas cost includes:
-- Computation cost: $C_{\text{comp}}$
-- Storage cost: $C_{\text{storage}}$
+**Definition 6.3 (Sui Gas Model):** Gas cost includes:  
+- Computation cost: $C_{\text{comp}}$  
+- Storage cost: $C_{\text{storage}}$  
 
-Total: $\text{Gas} = C_{\text{comp}} + C_{\text{storage}}$
+Total: $\text{Gas} = C_{\text{comp}} + C_{\text{storage}}$  
 
-**Theorem 6.3 (Sui Cost Advantage):** For typical DeFi operations:
+**Theorem 6.3 (Sui Cost Advantage):** For typical DeFi operations:  
 
 $\frac{\text{Cost}_{\text{Sui}}}{\text{Cost}_{\text{Ethereum}}} \approx 0.01 \text{ to } 0.1$
 
@@ -1542,7 +1542,7 @@ $\square$
 
 ### 6.4 Move Programming Patterns
 
-**Pattern 6.1 (Position as NFT):**
+**Pattern 6.1 (Position as NFT):**  
 
 ```move
 struct Position has key, store {
@@ -1553,7 +1553,7 @@ struct Position has key, store {
 }
 ```
 
-**Pattern 6.2 (Capability-Based Access):**
+**Pattern 6.2 (Capability-Based Access):**  
 
 ```move
 struct AdminCap has key, store { id: UID }
@@ -1566,7 +1566,7 @@ public entry fun admin_function(
 }
 ```
 
-**Pattern 6.3 (Shared Object for Global State):**
+**Pattern 6.3 (Shared Object for Global State):**  
 
 ```move
 struct Pool has key {
@@ -1585,49 +1585,49 @@ struct Pool has key {
 
 We have presented two novel DeFi protocols addressing fundamental limitations in current systems:
 
-**ACL-DEX:**
-- Native impermanent loss protection (80-90% reduction) via embedded options
-- MEV-resistant batch auctions with formal incentive compatibility proofs
+**ACL-DEX:**   
+- Native impermanent loss protection (80-90% reduction) via embedded options  
+- MEV-resistant batch auctions with formal incentive compatibility proofs  
 - Sui-native implementation leveraging parallel execution
 
-**P2PH:**
-- Gradual liquidation mechanism preventing cascades (Theorem 2.8)
-- Byzantine fault-tolerant oracle consensus (Theorem 2.10)
+**P2PH:**   
+- Gradual liquidation mechanism preventing cascades (Theorem 2.8)  
+- Byzantine fault-tolerant oracle consensus (Theorem 2.10)  
 - Dynamic risk parameters adapting to market conditions
 
-**Mathematical Rigor:**
-- Formal proofs of key properties (12 theorems, 17 definitions)
-- Game-theoretic analysis of incentive structures
+**Mathematical Rigor:**   
+- Formal proofs of key properties (12 theorems, 17 definitions)  
+- Game-theoretic analysis of incentive structures  
 - Stochastic modeling of risk and security
 
-**Implementation Innovation:**
-- First protocols to fully leverage Sui's object model
-- Move language for provable security
+**Implementation Innovation:**   
+- First protocols to fully leverage Sui's object model  
+- Move language for provable security  
 - 10-100x lower costs than Ethereum
 
 ### 7.2 Future Work
 
-**Short-term (6-12 months):**
-1. Mainnet deployment and real-world testing
-2. Additional asset classes (NFT collateral, exotic options)
-3. Cross-chain expansion (Aptos, Movement)
+**Short-term (6-12 months):**   
+1. Mainnet deployment and real-world testing  
+2. Additional asset classes (NFT collateral, exotic options)  
+3. Cross-chain expansion (Aptos, Movement)  
 
-**Medium-term (1-2 years):**
-1. Advanced derivatives (perpetuals, options markets)
-2. Institutional features (KYC/AML compliance modules)
-3. Layer-2 scaling solutions
+**Medium-term (1-2 years):**   
+1. Advanced derivatives (perpetuals, options markets)  
+2. Institutional features (KYC/AML compliance modules)  
+3. Layer-2 scaling solutions  
 
-**Long-term (2-5 years):**
-1. Fully autonomous DAO governance
-2. AI-driven risk management
-3. Interoperability with traditional finance
+**Long-term (2-5 years):**   
+1. Fully autonomous DAO governance  
+2. AI-driven risk management  
+3. Interoperability with traditional finance  
 
 ### 7.3 Broader Impact
 
-Our protocols contribute to:
-1. **DeFi Safety:** Reduced losses for users (IL protection, cascade prevention)
-2. **Capital Efficiency:** Higher returns for LPs, lower costs for borrowers
-3. **Market Integrity:** MEV resistance, manipulation resistance
+Our protocols contribute to:   
+1. **DeFi Safety:** Reduced losses for users (IL protection, cascade prevention)  
+2. **Capital Efficiency:** Higher returns for LPs, lower costs for borrowers  
+3. **Market Integrity:** MEV resistance, manipulation resistance  
 4. **Ecosystem Growth:** Demonstrating Move's capabilities for DeFi
 
 The mathematical frameworks developed here are generalizable to other blockchain systems and financial applications.

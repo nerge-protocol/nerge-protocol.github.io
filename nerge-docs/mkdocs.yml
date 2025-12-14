@@ -1,16 +1,15 @@
 site_name: Nerge Protocol Documentation
 nav:
   - Home: index.md
-  - Landing Page: landing-page.md
   - Lite Paper V1: lite-paper.md
   - Lite Paper V2: lite-paper-v2.md
   - Lite Paper V3: lite-paper-v3.md
   - White Paper: white-paper.md
   - Developer Docs: developer-docs.md
 
-mmarkdown_extensions:
-  - pymdownx.arithmatex:
-      generic: true
+# markdown_extensions:
+#   - pymdownx.arithmatex:
+#       generic: true
   # - pymdownx.superfences:
   #     custom_fences:
   #       - name: mermaid
@@ -21,6 +20,8 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/mermaid.mjs
+  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 
 # theme: readthedocs
 
@@ -50,6 +51,9 @@ markdown_extensions:
           class: mermaid
           # Additional options may be needed depending on Mermaid version/features
           format: !!python/name:mermaid2.fence_mermaid_custom
+  - pymdownx.arithmatex:
+      generic: true
+      inline_syntax: ['dollar', 'round']
 
 
 

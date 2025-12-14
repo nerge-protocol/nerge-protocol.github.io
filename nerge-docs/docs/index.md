@@ -23,6 +23,10 @@ Built on the **Sui Blockchain**, Nerge introduces a new standard of financial en
 
 **[Read the Light Paper →](./lite-paper-v3.md)**
 
+>What is *Adaptive Concentrated Liquidity*? [Read the blog post](./blog-post-ideas/adaptive-concentrated-liquidity.md)
+
+>Want to know more about *Synthetic Impermanent Loss Protection*? [Read the blog post](./blog-post-ideas/synthetic-imperment-loss-protection.md)
+
 ### P2PH Lending: The Market That Won't Crash
 *A Hybrid Lending Protocol engineered to withstand the worst Black Swan events.*
 
@@ -30,7 +34,7 @@ Built on the **Sui Blockchain**, Nerge introduces a new standard of financial en
 *   **Hybrid Risk Isolation**: Safe assets enjoy deep pooled liquidity. Risky assets are automatically isolated into Peer-to-Peer matches, protecting the main protocol from contagion.
 *   **Byzantine-Resistant Oracles**: We don't trust; we verify. A consensus of 7+ stake-weighted oracles ensures price data is manipulation-proof.
 
-**[Explore the Mechanics →](./how-lending-works.md)**
+>Want to know more about P2PH Lending? [Explore the Mechanics](./blog-post-ideas/p2ph-lending.md)
 
 ---
 
@@ -53,7 +57,7 @@ Nerge isn't just a protocol; it's a movement towards a professional, institution
 *   **Traders**: Swap with zero slippage and zero fear of bots.
 *   **LPs**: Earn real yield without the risk of impermanent loss.
 
-**[Launch App]** &nbsp;&nbsp; **[Read Whitepaper]** &nbsp;&nbsp; **[Join Discord]**
+**[Launch App]** &nbsp;&nbsp; **[Read Whitepaper](./white-paper.md)** &nbsp;&nbsp; **[Join Discord]**
 
 ---
 

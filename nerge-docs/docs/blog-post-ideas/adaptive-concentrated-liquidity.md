@@ -45,21 +45,21 @@ Here’s a detailed comparison:
 From **Section 3.1**, the protocol uses RL to optimize:
 
 **State \(s_t\):**  
-\[
+$$
 s_t = (U_t, \sigma_t, r_t^{\text{market}}, R_t^{\text{protocol}}, D_t)
-\]
+$$
 - Utilization, volatility, market rates, reserves, bad debt.
 
 **Action \(a_t\):**  
-\[
+$$
 a_t = (r_0^t, r_1^t, r_2^t, U^{*,t})
-\]
+$$
 - Interest rate parameters and optimal utilization.
 
 **Reward \(R(s_t, a_t)\):**  
-\[
+$$
 R = w_1 \cdot \text{Revenue}_t + w_2 \cdot U_t - w_3 \cdot \text{BadDebt}_t - w_4 \cdot |\Delta r_t|
-\]
+$$
 - Maximize revenue and utilization, minimize bad debt and rate volatility.
 
 **This RL system auto-adjusts:**

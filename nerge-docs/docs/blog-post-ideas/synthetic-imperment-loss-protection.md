@@ -10,11 +10,11 @@ Let us expand on the whitepaper and explain **in great detail** how NERGE solves
 When you provide liquidity to an AMM, if the price of assets diverges from your entry point, you suffer loss compared to just holding the assets.
 
 **Mathematical Definition (from whitepaper):**
-For price ratio \( p = P_t/P_0 \):
-\[
+For price ratio \\( p = P_t/P_0 \\):
+$$
 \text{IL}(p) = \frac{2\sqrt{p}}{1 + p} - 1
-\]
-- Always negative for \( p \neq 1 \)
+$$
+- Always negative for \\( p \neq 1 \\)  
 - Maximum loss: ~25% for 2x price move, ~50% for 4x move
 
 **Traditional Solutions Fail:**
@@ -42,13 +42,19 @@ User deposits → Protocol creates "Protected LP Position"
    - Uses Merton jump-diffusion model (Theorem 2.1)
    - Inputs: current volatility σ, jump intensity λ, time horizon T
    - Output: Optimal protection levels:
-     \[
-     K_{\text{put}}^* = S_0 e^{-0.5\sigma\sqrt{T}}, \quad K_{\text{call}}^* = S_0 e^{0.3\sigma\sqrt{T}}
-     \]
+
+$$
+K_{\text{put}}^* = S_0 e^{-0.5\sigma\sqrt{T}}
+$$
+
+$$
+K_{\text{call}}^* = S_0 e^{0.3\sigma\sqrt{T}}
+$$
+     
      *These are NOT option strikes but PROTECTION TRIGGER LEVELS*
 
-2. **Embed Protection in Position Record:**
-   ```move
+2. **Embed Protection in Position Record:**  
+   ```rust
    struct ProtectedPosition {
        id: UID,
        owner: address,
@@ -149,17 +155,17 @@ User gets back initial capital despite IL!
 Cryptocurrency prices have **jumps** (sudden large moves). Black-Scholes assumes continuous paths → underestimates tail risk.
 
 **Protocol uses:**
-\[
+$$
 dS_t = \mu S_t dt + \sigma S_t dW_t + J_t S_t dN_t
-\]
+$$
 Where:
 - \(N_t\) = Poisson process (jumps occur randomly)
 - \(J_t\) = Jump size distribution
 
 **Theoretical option price (used for calculation only):**
-\[
+$$
 C(S, t) = \sum_{n=0}^{\infty} \frac{e^{-\lambda' T}(\lambda' T)^n}{n!} \text{BS}(S, K, r_n, \sigma_n, T)
-\]
+$$
 *This formula determines the FAIR COST of protection, not an actual price.*
 
 ### **B. Optimal Protection Parameters**
@@ -167,29 +173,29 @@ C(S, t) = \sum_{n=0}^{\infty} \frac{e^{-\lambda' T}(\lambda' T)^n}{n!} \text{BS}
 **Problem:** Too much protection is expensive, too little is ineffective.
 
 **Solution:** Maximize LP utility function:
-\[
+$$
 U(\mathbf{K}) = \mathbb{E}[V_{\text{hedge}}(T)] - \lambda \cdot \text{Var}[V_{\text{hedge}}(T)] - \Phi_{\text{cumulative}}
-\]
+$$
 
 **Result (Theorem 2.2):**
 For typical crypto volatility (σ ≈ 80%):
-- Downside protection activates at ~74% of entry price (\(K_{\text{put}}^*\))
-- Upside limitation at ~127% of entry price (\(K_{\text{call}}^*\))
+- Downside protection activates at ~74% of entry price $(\(K_{\text{put}}^*\))$
+- Upside limitation at ~127% of entry price $(\(K_{\text{call}}^*\))$
 
 *The call limitation prevents infinite liability for protocol.*
 
 ### **C. Protection Effectiveness (Theorem 2.3)**
 
 **Guarantee:** With proper parameters:
-\[
-\mathbb{E}[\text{IL}_{\text{residual}}] \leq 0.1 \cdot \mathbb{E}[\text{IL}_{\text{unhedged}}]
-\]
+$$
+\mathbb{E}[\text{IL}\_{\text{residual}}] \leq 0.1 \cdot \mathbb{E}[\text{IL}\_{\text{unhedged}}]
+$$
 **Translation:** Reduces IL by **90%** on average.
 
 **Cost-Benefit (Corollary 2.1):**
-\[
-\frac{\mathbb{E}[\text{IL}_{\text{saved}}]}{\Phi_{\text{cumulative}}} \geq 4
-\]
+$$
+\frac{\mathbb{E}[\text{IL}\_{\text{saved}}]}{\Phi\_{\text{cumulative}}} \geq 4
+$$
 Every $1 paid in fees saves ≥$4 in IL.
 
 ---
@@ -208,9 +214,9 @@ Reserve Fund Composition:
 
 **Reserve Requirements Calculation:**
 Using the Merton formula, protocol calculates:
-\[
+$$
 \text{RequiredReserve} = \sum_{\text{positions}} \text{ValueAtRisk}(\text{ProtectionPayout})
-\]
+$$
 Maintains **overcollateralization** of ~150% to handle tail events.
 
 ### **B. Delta Hedging (Optional)**

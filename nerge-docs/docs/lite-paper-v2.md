@@ -239,8 +239,7 @@ Stake‑weighted median + slashing ensures robust price feeds.
 
 ---
 
-### ✅ **Diagram 7 — Security Pillars** *(Minimalist Line‑Art)*  
-Three shields labeled MEV, Liquidation, Oracle protecting the protocol core.
+### Security Pillars
 ![Security Pillars](./assets/security-pillars.png)
 
 ```mermaid
@@ -269,7 +268,7 @@ This ensures scalability, security, and low‑latency user experience.
 
 ---
 
-### ✅ **Diagram 8 — Technology Stack** *(Colorful Infographic)*  
+### Technology Stack
 Sui → Move → Nerge Protocols → DEX + Lending + Governance.
 
 ```mermaid
@@ -306,7 +305,7 @@ graph TD
 
 ---
 
-### ✅ **Diagram 9 — Roadmap Timeline** *(Colorful Infographic)*  
+### ** Roadmap Timeline**    
 Four phases with icons and milestones.
 
 ```mermaid
