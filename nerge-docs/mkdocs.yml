@@ -37,11 +37,11 @@ theme:
       toggle:
         icon: material/brightness-4
         tooltip: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/brightness-7
-        tooltip: Switch to light mode
+    # - media: "(prefers-color-scheme: dark)"
+    #   scheme: slate
+    #   toggle:
+    #     icon: material/brightness-7
+    #     tooltip: Switch to light mode
 markdown_extensions:
   - pymdownx.superfences:
       # Required for Mermaid support in SuperFences
