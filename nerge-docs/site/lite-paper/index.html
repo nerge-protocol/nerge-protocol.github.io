@@ -1,0 +1,2259 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../lite-paper-v2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Lite Paper V1 - Nerge Protocol Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nerge-smarter-safer-simpler-defi-protocols" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Nerge Protocol Documentation" class="md-header__button md-logo" aria-label="Nerge Protocol Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nerge Protocol Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lite Paper V1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label=""  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label=""  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Nerge Protocol Documentation" class="md-nav__button md-logo" aria-label="Nerge Protocol Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Nerge Protocol Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../landing-page.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Landing Page
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lite Paper V1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lite Paper V1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-defi-today-is-broken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem: DeFi Today Is Broken
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#our-solution-two-protocols-that-fix-defi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Our Solution: Two Protocols That Fix DeFi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Our Solution: Two Protocols That Fix DeFi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-smartswap-the-first-loss-protected-dex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. SmartSwap: The First Loss-Protected DEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-safelend-cascade-proof-lending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. SafeLend: Cascade-Proof Lending
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-il-protection-works-simple-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔒 How IL Protection Works (Simple Version)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 How IL Protection Works (Simple Version)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traditional-dex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traditional DEX:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-smartswap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With SmartSwap:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-more-mev-how-batch-auctions-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛡️ No More MEV: How Batch Auctions Work
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ No More MEV: How Batch Auctions Work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-dexs-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current DEXs (Problem):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smartswap-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SmartSwap (Solution):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safe-liquidations-no-more-cascades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚨 Safe Liquidations: No More Cascades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Safe Liquidations: No More Cascades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-lending-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Lending (Problem):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safelend-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SafeLend (Solution):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oracle-security-multiple-independent-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏛️ Oracle Security: Multiple Independent Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-economics-simple-fair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💰 Token Economics: Simple &amp; Fair
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💰 Token Economics: Simple &amp; Fair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-token-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual Token System:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fee-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fee Distribution:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-sui-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Why Sui Blockchain?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Key Benefits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Key Benefits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-liquidity-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Liquidity Providers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-traders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Traders:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-borrowers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Borrowers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-the-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For the Ecosystem:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-numbers-expected-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 Real Numbers: Expected Performance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Real Numbers: Expected Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-lps-with-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For LPs with Protection:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-traders_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Traders:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Implementation Roadmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Implementation Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-mvp-q1-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: MVP (Q1 2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-full-launch-q2-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Full Launch (Q2 2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-growth-h2-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Growth (H2 2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔐 Security First
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Security First">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audits-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audits &amp; Verification:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Management:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-community" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤝 Team &amp; Community
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤝 Team &amp; Community">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Team:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community Approach:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Why This Matters Now
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Why This Matters Now">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#market-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market Timing:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competitive-advantage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competitive Advantage:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Expected Impact
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Expected Impact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#by-year-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        By Year 1:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#by-year-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        By Year 3:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call-to-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Call to Action
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Call to Action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Users:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-developers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Developers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-investors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Investors:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❓ Common Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="❓ Common Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q-is-this-really-no-loss-for-lps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: Is this really "no loss" for LPs?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-how-do-you-prevent-the-reserve-fund-from-running-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: How do you prevent the reserve fund from running out?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-why-hasnt-this-been-done-before" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: Why hasn't this been done before?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-is-this-regulated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: Is this regulated?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-what-if-sui-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: What if Sui fails?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-involved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 Get Involved
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lite-paper-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lite Paper V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lite-paper-v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lite Paper V3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../white-paper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    White Paper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-docs.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem-defi-today-is-broken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem: DeFi Today Is Broken
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#our-solution-two-protocols-that-fix-defi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Our Solution: Two Protocols That Fix DeFi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Our Solution: Two Protocols That Fix DeFi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-smartswap-the-first-loss-protected-dex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. SmartSwap: The First Loss-Protected DEX
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-safelend-cascade-proof-lending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. SafeLend: Cascade-Proof Lending
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-il-protection-works-simple-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔒 How IL Protection Works (Simple Version)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 How IL Protection Works (Simple Version)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traditional-dex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traditional DEX:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-smartswap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With SmartSwap:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-more-mev-how-batch-auctions-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛡️ No More MEV: How Batch Auctions Work
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ No More MEV: How Batch Auctions Work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-dexs-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current DEXs (Problem):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smartswap-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SmartSwap (Solution):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safe-liquidations-no-more-cascades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚨 Safe Liquidations: No More Cascades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚨 Safe Liquidations: No More Cascades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-lending-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Lending (Problem):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safelend-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SafeLend (Solution):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oracle-security-multiple-independent-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏛️ Oracle Security: Multiple Independent Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-economics-simple-fair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💰 Token Economics: Simple &amp; Fair
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💰 Token Economics: Simple &amp; Fair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-token-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual Token System:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fee-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fee Distribution:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-sui-blockchain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ Why Sui Blockchain?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Key Benefits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Key Benefits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-liquidity-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Liquidity Providers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-traders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Traders:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-borrowers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Borrowers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-the-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For the Ecosystem:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-numbers-expected-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 Real Numbers: Expected Performance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Real Numbers: Expected Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-lps-with-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For LPs with Protection:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-traders_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Traders:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Implementation Roadmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Implementation Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-mvp-q1-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: MVP (Q1 2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-full-launch-q2-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Full Launch (Q2 2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-growth-h2-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Growth (H2 2026)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔐 Security First
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Security First">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audits-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audits &amp; Verification:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#risk-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Management:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-community" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤝 Team &amp; Community
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤝 Team &amp; Community">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Team:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community Approach:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Why This Matters Now
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Why This Matters Now">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#market-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market Timing:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competitive-advantage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competitive Advantage:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Expected Impact
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Expected Impact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#by-year-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        By Year 1:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#by-year-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        By Year 3:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call-to-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Call to Action
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Call to Action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Users:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-developers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Developers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-investors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Investors:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❓ Common Questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="❓ Common Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q-is-this-really-no-loss-for-lps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: Is this really "no loss" for LPs?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-how-do-you-prevent-the-reserve-fund-from-running-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: How do you prevent the reserve fund from running out?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-why-hasnt-this-been-done-before" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: Why hasn't this been done before?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-is-this-regulated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: Is this regulated?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q-what-if-sui-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q: What if Sui fails?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-involved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 Get Involved
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="nerge-smarter-safer-simpler-defi-protocols">🌟 <strong>Nerge: Smarter, Safer, Simpler DeFi Protocols</strong></h1>
+<h2 id="the-problem-defi-today-is-broken"><strong>The Problem: DeFi Today Is Broken</strong></h2>
+<p>Liquidity providers lose money from <strong>impermanent loss</strong>, traders get <strong>front-run by MEV bots</strong>, and liquidations cause <strong>cascading crashes</strong>. Current protocols are inefficient, unsafe, and expensive.</p>
+<h2 id="our-solution-two-protocols-that-fix-defi"><strong>Our Solution: Two Protocols That Fix DeFi</strong></h2>
+<h3 id="1-smartswap-the-first-loss-protected-dex"><strong>1. SmartSwap: The First Loss-Protected DEX</strong></h3>
+<ul>
+<li><strong>Automatic IL Protection</strong>: LPs get 50-90% of impermanent loss covered automatically</li>
+<li><strong>No Front-Running</strong>: Batch auctions eliminate MEV completely</li>
+<li><strong>Lower Fees</strong>: 0.05% swaps + 0.8% annual protection fee (optional)</li>
+</ul>
+<h3 id="2-safelend-cascade-proof-lending"><strong>2. SafeLend: Cascade-Proof Lending</strong></h3>
+<ul>
+<li><strong>Gradual Liquidations</strong>: No more panic selling during crashes</li>
+<li><strong>Oracle Security</strong>: Multiple oracles with stake-based consensus</li>
+<li><strong>Smart Rates</strong>: Interest rates that adjust to market conditions automatically</li>
+</ul>
+<hr />
+<h2 id="how-il-protection-works-simple-version">🔒 <strong>How IL Protection Works (Simple Version)</strong></h2>
+<h3 id="traditional-dex"><strong>Traditional DEX:</strong></h3>
+<div class="highlight"><pre><span></span><code>You provide: 5 ETH + 10,000 USDC
+ETH drops 30%
+You lose: ~$1,250 (impermanent loss)
+Result: You stop providing liquidity
+</code></pre></div>
+<h3 id="with-smartswap"><strong>With SmartSwap:</strong></h3>
+<div class="highlight"><pre><span></span><code>You provide: 5 ETH + 10,000 USDC
+✅ Enable &quot;Loss Protection&quot; (0.8%/year fee)
+ETH drops 30%
+Protocol pays you: ~$850 from reserve
+Your net loss: ~$400 (instead of $1,250)
+Result: You keep providing liquidity
+</code></pre></div>
+<p><strong>What you see:</strong> One click, automatic protection<br />
+<strong>What happens behind:</strong> Protocol uses math (Black-Scholes) to calculate fair protection, maintains reserve fund, hedges risk automatically</p>
+<hr />
+<h2 id="no-more-mev-how-batch-auctions-work">🛡️ <strong>No More MEV: How Batch Auctions Work</strong></h2>
+<h3 id="current-dexs-problem"><strong>Current DEXs (Problem):</strong></h3>
+<div class="highlight"><pre><span></span><code>1. You try to buy ETH
+2. Bot sees your transaction
+3. Bot buys first (front-run)
+4. You pay higher price
+5. Bot sells to you (back-run)
+6. Bot profits, you lose
+</code></pre></div>
+<h3 id="smartswap-solution"><strong>SmartSwap (Solution):</strong></h3>
+<div class="highlight"><pre><span></span><code>1. All trades in 3-second window
+2. Everyone gets SAME price
+3. No advantage to bots
+4. You save 0.5-2% per trade
+</code></pre></div>
+<p><strong>Like:</strong> Everyone at an auction bidding simultaneously, all pay the same final price</p>
+<hr />
+<h2 id="safe-liquidations-no-more-cascades">🚨 <strong>Safe Liquidations: No More Cascades</strong></h2>
+<h3 id="current-lending-problem"><strong>Current Lending (Problem):</strong></h3>
+<div class="highlight"><pre><span></span><code>ETH price drops 5%
+→ 100 positions liquidated at once
+→ Massive selling pressure
+→ ETH drops another 10%
+→ More liquidations
+→ CRASH
+</code></pre></div>
+<h3 id="safelend-solution"><strong>SafeLend (Solution):</strong></h3>
+<div class="highlight"><pre><span></span><code>ETH price drops 5%
+→ Positions queued for liquidation
+→ Sold gradually over hours
+→ Minimal price impact
+→ No cascade, stable market
+</code></pre></div>
+<p><strong>Like:</strong> Releasing water from a dam slowly vs. breaking the dam</p>
+<hr />
+<h2 id="oracle-security-multiple-independent-sources">🏛️ <strong>Oracle Security: Multiple Independent Sources</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Current Protocols</th>
+<th>SafeLend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 oracle (single point of failure)</td>
+<td>7+ oracles (stake-weighted)</td>
+</tr>
+<tr>
+<td>Can be manipulated</td>
+<td>Need &gt;50% stake to manipulate</td>
+</tr>
+<tr>
+<td>Historical hacks: $100M+</td>
+<td>Theoretically unbreakable</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="token-economics-simple-fair">💰 <strong>Token Economics: Simple &amp; Fair</strong></h2>
+<h3 id="dual-token-system"><strong>Dual Token System:</strong></h3>
+<p><strong>1. GOV Token (Governance)</strong>
+- Vote on protocol changes
+- Earn 30% of protocol fees
+- Limited supply: 1 billion tokens</p>
+<p><strong>2. UTIL Token (Utility)</strong>
+- Pay for protection fees
+- Required for certain operations
+- Supply adjusts based on usage</p>
+<h3 id="fee-distribution"><strong>Fee Distribution:</strong></h3>
+<div class="highlight"><pre><span></span><code>Swap/Lending Fees → 100%
+├── 50% → Buy &amp; burn UTIL tokens (deflationary)
+├── 30% → GOV stakers (rewards)
+├── 15% → Reserve fund (safety)
+└── 5% → Treasury (development)
+</code></pre></div>
+<hr />
+<h2 id="why-sui-blockchain">⚡ <strong>Why Sui Blockchain?</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Ethereum</th>
+<th>Sui (Our Choice)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$15-50 per swap</td>
+<td>$0.01-0.10 per swap</td>
+</tr>
+<tr>
+<td>Sequential execution</td>
+<td>Parallel execution</td>
+</tr>
+<tr>
+<td>MEV is huge problem</td>
+<td>MEV nearly impossible</td>
+</tr>
+<tr>
+<td>Slow (10-30s finality)</td>
+<td>Fast (2-3s finality)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result:</strong> 10-100x cheaper, 10x faster, built-in MEV resistance</p>
+<hr />
+<h2 id="key-benefits">🎯 <strong>Key Benefits</strong></h2>
+<h3 id="for-liquidity-providers"><strong>For Liquidity Providers:</strong></h3>
+<ul>
+<li>✅ <strong>Earn more</strong>: Protection reduces losses, you stay in pools longer</li>
+<li>✅ <strong>Sleep better</strong>: No sudden IL surprises</li>
+<li>✅ <strong>Simple</strong>: One-click protection, no options knowledge needed</li>
+</ul>
+<h3 id="for-traders"><strong>For Traders:</strong></h3>
+<ul>
+<li>✅ <strong>Save money</strong>: No MEV, better prices</li>
+<li>✅ <strong>Fair execution</strong>: No bots jumping ahead of you</li>
+<li>✅ <strong>Predictable</strong>: Same price for everyone in batch</li>
+</ul>
+<h3 id="for-borrowers"><strong>For Borrowers:</strong></h3>
+<ul>
+<li>✅ <strong>Stable rates</strong>: Rates adjust smoothly to market</li>
+<li>✅ <strong>No panic liquidations</strong>: Gradual process prevents cascade</li>
+<li>✅ <strong>More secure</strong>: Robust oracle system</li>
+</ul>
+<h3 id="for-the-ecosystem"><strong>For the Ecosystem:</strong></h3>
+<ul>
+<li>✅ <strong>Less volatility</strong>: No liquidation cascades</li>
+<li>✅ <strong>More liquidity</strong>: LPs stay through volatility</li>
+<li>✅ <strong>Healthier markets</strong>: Reduced manipulation risk</li>
+</ul>
+<hr />
+<h2 id="real-numbers-expected-performance">📈 <strong>Real Numbers: Expected Performance</strong></h2>
+<h3 id="for-lps-with-protection"><strong>For LPs with Protection:</strong></h3>
+<div class="highlight"><pre><span></span><code>Without protection:
+- Average IL: 5-10% annually
+- Many LPs leave during volatility
+
+With protection:
+- IL reduced by 50-90%
+- Effective fee: 0.8% annually
+- Net benefit: 4-9% extra return
+</code></pre></div>
+<h3 id="for-traders_1"><strong>For Traders:</strong></h3>
+<div class="highlight"><pre><span></span><code>Current DEXs:
+- MEV loss: 0.5-2% per trade
+- Front-running common
+
+SmartSwap:
+- MEV loss: 0%
+- Batch price: often better than sequential
+</code></pre></div>
+<hr />
+<h2 id="implementation-roadmap">🚀 <strong>Implementation Roadmap</strong></h2>
+<h3 id="phase-1-mvp-q1-2026"><strong>Phase 1: MVP (Q1 2026)</strong></h3>
+<ul>
+<li>SmartSwap with 2 pairs (ETH/USDC, SUI/USDC)</li>
+<li>Basic IL protection (50% coverage)</li>
+<li>Batch auctions (3-second windows)</li>
+<li>Testnet launch</li>
+</ul>
+<h3 id="phase-2-full-launch-q2-2026"><strong>Phase 2: Full Launch (Q2 2026)</strong></h3>
+<ul>
+<li>All features live</li>
+<li>10+ trading pairs</li>
+<li>Full IL protection (up to 90%)</li>
+<li>SafeLend launch</li>
+<li>Mainnet launch</li>
+</ul>
+<h3 id="phase-3-growth-h2-2026"><strong>Phase 3: Growth (H2 2026)</strong></h3>
+<ul>
+<li>Cross-chain expansion</li>
+<li>Advanced features</li>
+<li>Institutional tools</li>
+<li>Mobile app</li>
+</ul>
+<hr />
+<h2 id="security-first">🔐 <strong>Security First</strong></h2>
+<h3 id="audits-verification"><strong>Audits &amp; Verification:</strong></h3>
+<ul>
+<li>✅ <strong>Formal verification</strong> of Move contracts</li>
+<li>✅ <strong>3+ independent audits</strong> before launch</li>
+<li>✅ <strong>Bug bounty program</strong> ($1M+ fund)</li>
+<li>✅ <strong>Insurance fund</strong> (starts at $5M)</li>
+</ul>
+<h3 id="risk-management"><strong>Risk Management:</strong></h3>
+<ul>
+<li><strong>Dynamic reserves</strong>: Protection adjusts based on fund health</li>
+<li><strong>Circuit breakers</strong>: Pause during extreme volatility</li>
+<li><strong>Multi-sig governance</strong>: 8/12 signatures for critical changes</li>
+<li><strong>Time-locked upgrades</strong>: 7-day delay on major changes</li>
+</ul>
+<hr />
+<h2 id="team-community">🤝 <strong>Team &amp; Community</strong></h2>
+<h3 id="core-team"><strong>Core Team:</strong></h3>
+<ul>
+<li><strong>Quantitative finance</strong> PhDs (ex-Goldman, Citadel)</li>
+<li><strong>Blockchain engineers</strong> (ex-Sui, Aptos, Move core devs)</li>
+<li><strong>DeFi veterans</strong> (built protocols with $1B+ TVL)</li>
+</ul>
+<h3 id="community-approach"><strong>Community Approach:</strong></h3>
+<ul>
+<li><strong>Open source</strong> from day one</li>
+<li><strong>Transparent development</strong> (public roadmap, weekly updates)</li>
+<li><strong>DAO governance</strong> from launch</li>
+<li><strong>Fair token distribution</strong> (30% community, 25% team/4yr vest)</li>
+</ul>
+<hr />
+<h2 id="why-this-matters-now">💡 <strong>Why This Matters Now</strong></h2>
+<h3 id="market-timing"><strong>Market Timing:</strong></h3>
+<ul>
+<li><strong>DeFi 1.0</strong> (2020-2022): Basic protocols, many flaws</li>
+<li><strong>DeFi 2.0</strong> (2023-2024): Improved but still fragile</li>
+<li><strong>DeFi++</strong> (2025+): Robust, safe, institutional-grade</li>
+</ul>
+<h3 id="competitive-advantage"><strong>Competitive Advantage:</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Uniswap</th>
+<th>Aave</th>
+<th><strong>Our Protocol</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IL Protection</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>✅ <strong>Yes</strong></td>
+</tr>
+<tr>
+<td>MEV Resistance</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>✅ <strong>Yes</strong></td>
+</tr>
+<tr>
+<td>Cascade Prevention</td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>✅ <strong>Yes</strong></td>
+</tr>
+<tr>
+<td>Oracle Security</td>
+<td>❌ Medium</td>
+<td>❌ Medium</td>
+<td>✅ <strong>High</strong></td>
+</tr>
+<tr>
+<td>Costs</td>
+<td>❌ High</td>
+<td>❌ High</td>
+<td>✅ <strong>Low</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="expected-impact">📊 <strong>Expected Impact</strong></h2>
+<h3 id="by-year-1"><strong>By Year 1:</strong></h3>
+<ul>
+<li><strong>TVL</strong>: $500M+</li>
+<li><strong>Protected LPs</strong>: 10,000+</li>
+<li><strong>IL saved</strong>: $10M+</li>
+<li><strong>MEV saved</strong>: $5M+</li>
+</ul>
+<h3 id="by-year-3"><strong>By Year 3:</strong></h3>
+<ul>
+<li><strong>TVL</strong>: $5B+</li>
+<li><strong>Protected LPs</strong>: 100,000+</li>
+<li><strong>IL saved</strong>: $200M+</li>
+<li><strong>MEV saved</strong>: $100M+</li>
+<li><strong>Market share</strong>: Top 5 DEX, Top 3 lending protocol</li>
+</ul>
+<hr />
+<h2 id="call-to-action">🎯 <strong>Call to Action</strong></h2>
+<h3 id="for-users"><strong>For Users:</strong></h3>
+<ul>
+<li><strong>Try testnet</strong> when available</li>
+<li><strong>Join waitlist</strong> for early access</li>
+<li><strong>Follow updates</strong> on Twitter/Discord</li>
+</ul>
+<h3 id="for-developers"><strong>For Developers:</strong></h3>
+<ul>
+<li><strong>Contribute</strong> to open source code</li>
+<li><strong>Build on</strong> our protocol</li>
+<li><strong>Apply for grants</strong> ($1M developer fund)</li>
+</ul>
+<h3 id="for-investors"><strong>For Investors:</strong></h3>
+<ul>
+<li><strong>Read full whitepaper</strong> for technical details</li>
+<li><strong>Join community calls</strong> for updates</li>
+<li><strong>Contact</strong> for partnership opportunities</li>
+</ul>
+<hr />
+<h2 id="common-questions">❓ <strong>Common Questions</strong></h2>
+<h3 id="q-is-this-really-no-loss-for-lps"><strong>Q: Is this really "no loss" for LPs?</strong></h3>
+<p><strong>A:</strong> No — it's "less loss." Protection covers 50-90% of impermanent loss, not 100%. You pay a small fee (0.8%/year) for this protection.</p>
+<h3 id="q-how-do-you-prevent-the-reserve-fund-from-running-out"><strong>Q: How do you prevent the reserve fund from running out?</strong></h3>
+<p><strong>A:</strong> The protocol automatically hedges its exposure using derivatives. In extreme crashes, the hedge profits offset protection payouts. Fees also adjust dynamically based on reserve levels.</p>
+<h3 id="q-why-hasnt-this-been-done-before"><strong>Q: Why hasn't this been done before?</strong></h3>
+<p><strong>A:</strong> The math is complex, and most protocols copy existing designs. We built from first principles using financial engineering techniques not previously applied to DeFi.</p>
+<h3 id="q-is-this-regulated"><strong>Q: Is this regulated?</strong></h3>
+<p><strong>A:</strong> No — it's a protocol feature, not a financial product. Similar to how a car's ABS isn't "car insurance," our protection isn't "investment insurance."</p>
+<h3 id="q-what-if-sui-fails"><strong>Q: What if Sui fails?</strong></h3>
+<p><strong>A:</strong> The design is blockchain-agnostic. We start on Sui for technical advantages but can expand to other chains.</p>
+<hr />
+<h2 id="get-involved">🌐 <strong>Get Involved</strong></h2>
+<p><strong>Website:</strong> <a href="https://nerge-protocol.vercel.app/">nerge-protocol.vercel.app</a>
+<strong>Twitter:</strong> @Nerge_Protocol 
+<strong>Discord:</strong> discord.gg/defipp<br />
+<strong>GitHub:</strong> <a href="https://github.com/nerge-protocol">github.com/nerge-protocol </a> 
+<strong>Email:</strong> nergeprotocol@gmail.com</p>
+<p><strong>Testnet Launch:</strong> Q1 2026<br />
+<strong>Mainnet Launch:</strong> Q2 2026</p>
+<hr />
+<p><em>Nerge: Because you shouldn't need a PhD in finance to safely participate in decentralized finance.</em></p>
+<hr />
+<p><em>Lite Paper v1.0 — November 2025</em><br />
+<em>Based on the full whitepaper "Nerge Protocols: Mathematical Foundations and Mechanisms"</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../javascripts/mermaid.mjs" type="module"></script>
+      
+    
+  </body>
+</html>
